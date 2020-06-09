@@ -7,6 +7,7 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts')
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
+const bookRouter = require('./routes/books');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
@@ -21,6 +22,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/authors', authorRouter);
+app.use('/books', bookRouter);
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser:true, useUnifiedTopology: true });
